@@ -56,7 +56,6 @@
 %\pagenumbering{empty}   %DA SCOMMENTARE SE NON SI VUOLE IL NUMERO DI PAGINA.
 %%//=========================================================================================//
 
-
 %//						MODULO_02
 %//============================================================================================//
 %//						MODULO_01
@@ -70,6 +69,7 @@
 	linkbordercolor=red,% hyperlink borders will be red
 	pdfborderstyle={/S/U/W 1}% border style will be underline of width 1pt
 }
+
 \begin{document}
 
 %%------------------------------->SEZIONE + SOTTO SEZIONE ... TUTTE
@@ -79,10 +79,7 @@
 		\label{TUTORIAL:chapter}
 		Tutti i tutorial relativi al S.O. DOS si trovano in questa
 		directory:\\
-			\textbf{
-			\detokenize{c:\CASA\LINGUAGGI\DOS\
-			}}
-		
+		\detokenize{c:\CASA\LINGUAGGI\DOS\..}		
 		\section{Sistema Operativo Lucidi}
 			\label{TUTORIAL:SistemaOperativo-Lucidi}{......SISTEMA OPERATIVO LUCIDI}\\
 			Il file .pdf relativo al sistema operativo lucidi è il
@@ -121,7 +118,7 @@
 						? R ?le o directory in sola lettura e non cancellabile;
 						? A ?le o directory da archiviare (i dati sono stati modi?cati).
 					\subparagraph{COMMAND.COM}
-						Interprete del dos avviato dal Kernel all'inizio o può essere attivato
+						Interprete del dos avviato dal Kernel all'inizio o puo' essere attivato
 						anche più volte successivamente anche se DOS non è come Unix un sistema
 						operativo multiprogrammazione, quindi anche se più di un avvio non è utile.
 					\subparagraph{PATH}
@@ -166,12 +163,12 @@
 					
 					[unità1:][percorso1]nomefile Specifica il o i file di origine.
 					[unità2:][percorso2] Specifica la directory in cui i file devono essere sostituiti.
-					/A Aggiunge nuovi file alla directory destinazione. Non si può utilizzare con le opzioni /S o /U.
+					/A Aggiunge nuovi file alla directory destinazione. Non si puo' utilizzare con le opzioni /S o /U.
 					/P Chiede conferma prima di sostituire un file o aggiungere un file di origine.
 					/R Sostituisce sia i file di sola lettura che i file non protetti.
-					/S Sostituisce i file di tutte le sottodirectory nella directory di destinazione. Non si può utilizzare con l'opzione /A.
+					/S Sostituisce i file di tutte le sottodirectory nella directory di destinazione. Non si puo' utilizzare con l'opzione /A.
 					/W Attende l'inserimento di un disco prima di continuare.
-					/U Sostituisce (aggiorna) solo i file più vecchi del file di origine. Non si può utilizzare con l'opzione /A.
+					/U Sostituisce (aggiorna) solo i file più vecchi del file di origine. Non si puo' utilizzare con l'opzione /A.
 					
 					RMDIR Elimina una directory.
 					RMDIR [/S] [/Q] [unità:]percorso
@@ -215,15 +212,16 @@
 					&= ^= |= <<= >>=
 					, - separatore espressione
 					
-					Se si utilizzano operatori logici o di moduli, sarà necessario racchiudere la stringa dell'espressione entro virgolette. Le stringhe non numeriche nell'espressione vengono considerate come nomi di variabili di ambiente i cui valori sono convertiti in numeri prima che vengano utilizzati. Se un nome di variabile di ambiente è specificato ma non definito nell'ambiente corrente, allora si utilizza un valore di zero. Così è possibile eseguire operazioni aritmetiche con valori di variabili di ambiente senza dover digitare tutti i segni % per ottenere i rispettivi valori. Se SET /A viene eseguito dalla riga di comando al di fuori di uno script, verrà visualizzato il valore finale dell'espressione. L'operatore dell'assegnazione richiede un nome di variabile di ambiente alla sinistra dell'operatore di assegnazione. I valori numerici sono numeri decimali, a meno che non siano preceduti da 0x per numeri esadecimali e 0 per numeri ottali. Così 0x12 è analogo a 18 analogo a 022. Ricordare che la notazione ottale può generare confusione: 08 e 09 non sono numeri validi poiché 8 e 9 non sono cifre ottali valide.
+					Se si utilizzano operatori logici o di moduli, sarà necessario racchiudere la stringa dell'espressione entro virgolette. Le stringhe non numeriche nell'espressione vengono considerate come nomi di variabili di ambiente i cui valori sono convertiti in numeri prima che vengano utilizzati. Se un nome di variabile di ambiente è specificato ma non definito nell'ambiente corrente, allora si utilizza un valore di zero. Così è possibile eseguire operazioni aritmetiche con valori di variabili di ambiente senza dover digitare tutti i segni 
+					per ottenere i rispettivi valori. Se SET /A viene eseguito dalla riga di comando al di fuori di uno script, verrà visualizzato il valore finale dell'espressione. L'operatore dell'assegnazione richiede un nome di variabile di ambiente alla sinistra dell'operatore di assegnazione. I valori numerici sono numeri decimali, a meno che non siano preceduti da 0x per numeri esadecimali e 0 per numeri ottali. Così 0x12 è analogo a 18 analogo a 022. Ricordare che la notazione ottale puo' generare confusione: 08 e 09 non sono numeri validi poiché 8 e 9 non sono cifre ottali valide.
 					
-					L'opzione /P consente di impostare il valore di una variabile a una riga di input immessa dall'utente. Visualizza la Stringa Prompt specificata prima di leggere la riga di input. La Stringa Prompt può essere vuota.
+					L'opzione /P consente di impostare il valore di una variabile a una riga di input immessa dall'utente. Visualizza la Stringa Prompt specificata prima di leggere la riga di input. La Stringa Prompt puo' essere vuota.
 					
 					La sostituzione delle variabili di ambiente è migliorata come segue:
 					
 					%PATH:str1=str2%
 					
-					espande la variabile di ambiente PATH, sostituendo ciascuna occorrenza di "str1" nel risultato espanso con "str2". "str2" può essere la stringa vuota per eliminare tutte le occorrenze di "str1" dall'output prodotto dall'espansione. "str1" può iniziare con un asterisco, e in tal caso sarà corrispondente al punto di inizio dell'output dell'espansione fino alla prima occorrenza della parte restante di str1. Può anche specificare sottostringhe per un'espansione.
+					espande la variabile di ambiente PATH, sostituendo ciascuna occorrenza di "str1" nel risultato espanso con "str2". "str2" puo' essere la stringa vuota per eliminare tutte le occorrenze di "str1" dall'output prodotto dall'espansione. "str1" puo' iniziare con un asterisco, e in tal caso sarà corrispondente al punto di inizio dell'output dell'espansione fino alla prima occorrenza della parte restante di str1. Puo' anche specificare sottostringhe per un'espansione.
 					
 					%PATH:~10,5%
 					
@@ -277,7 +275,7 @@
 					
 					%CMDCMDLINE% - espande alla riga di comando iniziale che ha invocato il
 					processore di comando.
-							}
+					}
 				
 				
 				
@@ -341,11 +339,12 @@
 	\label{FOR:ESPANSIONERitardata-Descrizione}
 				%path del file+file
 				%h:\Casa\Linguaggi\DOS\DOS_N05_GUIDA_BATCH.GE614\DOS_GUIDA_BATCH\DOS_COMANDI\DOS_COMANDI_SET_N01_01_(Comando_SET_Esempi)
-				%\textbf{NOTE SULL ESPANSIONE RITARTATA} \\
+				%
+				\textbf{NOTE SULL ESPANSIONE RITARTATA} \\
 				L'espansione ritardata viene attivata con il comando\\
 				\detokenize{\textbf{setlocal EnableDelayedExpansion}}
 				sulla testata dello script e sulla stessa variabile in espansione occorre circondarle con
-				i punti esclamativi {(!)} per consentire l'espansione. Puoi vedere l'esempio di seguito
+				i punti esclamativi \! per consentire l'espansione. Puoi vedere l'esempio di seguito
 				indicato.
 				\label{SET:EspansioneRitardata-esempio}{.... SET ESEMPIO ESPANSIONE RITARDATA}			
 				
@@ -381,7 +380,7 @@
 				ESPANSIONE RITARDATA
 				...
 				È stato infine aggiunto il supporto per l'espansione ritardata delle variabili
-				ambiente. Tale supporto è disattivato per impostazione predefinita, ma può
+				ambiente. Tale supporto è disattivato per impostazione predefinita, ma puo'
 				attivato e disattivato utilizzando l'opzione /V del comando CMD.EXE. Digitare
 				per ulteriori informazioni.
 				L'espansione ritardata delle variabili di ambiente consente di ovviare alle limitazioni
@@ -426,9 +425,6 @@
 				Se l'espansione ritardata delle variabili di ambiente è 
 				attivata, gli esempi precedenti possono essere riscritti come segue, e funzioneranno 
 				correttamente:
-				
-
-				
 				
 				\textbf{ESEMPIO CORRETTO}
 				
@@ -490,13 +486,15 @@
 				d'ambiente. 
 				
 				ESEMPIO: 
-				
-				@echo off 
+				\detokenize{@echo off 
 				if "%1"=="A" echo ESATTO 
 				if "%1"=="" echo NON HAI SCRITTO NULLA 
 				
+				%% DA DEFINIRE
+				%
 				\vref{tutorialDos:if-guidabatch}{... vedi IF GUIDA BATCH pag 25}
-		
+				}
+				
 			\subsubsection{IF ERRORE LEVEL}
 				\label{tutorialDos:if-ErroreLevel}{... vedi IF GUIDA BATCH pag 25}
 					
@@ -541,7 +539,7 @@
 					@echo off 
 					If "%1"=="prova" echo Scelta giusta 
 					Come si fa ad eseguire istruzioni se non inseriamo "prova"? Non possiamo di certo prevedere tutto 
-					ciò che viene immesso! Allora entra in gioco la clausola else, che ci permette di eseguire istruzioni 
+					cio' che viene immesso! Allora entra in gioco la clausola else, che ci permette di eseguire istruzioni 
 					se scegliamo qualcos'altro. Ecco l'esempio con questa clausola: 
 					
 					ESEMPIO: 
@@ -567,17 +565,16 @@
 \chapter{FOR/F}
 
 \section{DOS FOR/F ANALISI}
-		\detokenize{
-		https://ss64.com/nt/for_cmd.html}
+		\detokenize{https://ss64.com/nt/for_cmd.html}
 		
-		\detokenize{
+	\detokenize{
 						Loop command: against the results of another command.
 						Comando loop: contro i risultati di un altro comando.
 						
 						
 						Syntax
 						FOR\ /F ["options"] %%parameter IN ('command_to_process') DO command
-						
+					
 						Key
 						options:
 						------------------------------------------------------------------------------------------------------
@@ -594,7 +591,7 @@
 						Un numero di righe da saltare all'inizio.
 						(impostazione predefinita = 0)
 						\\
-						
+							
 						------------------------------------------------------------------------------------------------------
 						eol=;        Character at the start of each line to indicate a comment
 						The default is a semicolon ;
@@ -608,315 +605,313 @@
 						------------------------------------------------------------------------------------------------------
 									------------------------------------------------------------------------------------------------------
 						usebackq     Use the alternate quoting style:
-						- Use double quotes for long file names in "filenameset".
-						- Use single quotes for 'Text string to process'
-						- Use back quotes for \detokenize{  \detokenize{ `command_to_process`}
-							
-							Usa lo stile di quotazione alternativo:
-							- Usa virgolette doppie per nomi di file lunghi in "filenameset".
-							- Usa virgolette singole per "Stringa di testo da elaborare"
-							- Usa le virgolette per  \detokenize{`command_to_process`}
-							------------------------------------------------------------------------------------------------------
-							command_to_process : The output of the 'command_to_process' is
-							passed into the FOR parameter.
-							L'output di "command_to_process" è
-							passato nel parametro FOR.
-							------------------------------------------------------------------------------------------------------
-							
-							command    :   The command to carry out, including any parameters.
-							This can be a single command, or if you enclose it
-							in (brackets), several commands, one per line.
-							Il comando da eseguire, inclusi eventuali parametri.
-							
-							Questo può essere un singolo comando o se lo racchiudi
-							tra parentesi quadre, diversi comandi, uno per riga.
-							------------------------------------------------------------------------------------------------------
-							%%parameter :  A replaceable parameter:
-							in a batch file use %%G (on the command line %G)
-							
-							------------------------------------------------------------------------------------------------------
-											------------------------------------------------------------------------------------------------------
-							
-							FOR\ /F
-							processing of a command consists of reading the output from the command one line at a time
-							and then breaking the line up into individual items of data or 'tokens'.
-							The DO command is then executed with the parameter(s) set to the token(s) found.
-							
-							l'elaborazione di un comando consiste nella lettura dell'output dal comando una riga alla volta
-							e quindi suddividere l'allineamento in singoli elementi di dati o "token".
-							Il comando DO viene quindi eseguito con i parametri impostati sul token trovato.
-							
-							------------------------------------------------------------------------------------------------------\\
-							
-							
-							The FOR command is the answer to innumerable questions where you want to take the output of some command,
-							store it in a variable (%%G) then do something with the result.
-							
-							Il comando FOR è la risposta a innumerevoli domande in cui si desidera prendere l'output di alcuni comandi,
-							archiviarlo in una variabile (%% G) quindi fare qualcosa con il risultato.\\
-							
-							------------------------------------------------------------------------------------------------------\\
-							
-							
-							For example the PING command returns serveral lines including one like:
-							
-							Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
-							
-							To select that one line of output, you can search for the text "loss" (which is always present), then use the Tokens parameter to select the number of lost packets, here this is 0 but it will vary each time you run the command.
-							
-							set _ping_cmd=ping -n 5 127.0.0.1
-							
-							FOR\ /F "tokens=4 delims=(=" %%G IN ('%_ping_cmd% ^|find "loss"') DO echo Result is [%%G]
-							
-							The tricky part is always splitting up the line of interest into the right tokens, in this case I'm splitting on the characters '=' and '('
-							these two characters split the line into 5 chunks of text and we pull out the fourth one with "tokens=4"
-							
-							By default, /F breaks up the command output at each blank space, and any blank lines are skipped.
-							You can override this default parsing behavior by specifying the "options" parameter. The options must be contained within "quotes"
-							
-							It is possible to use the syntax on this page to parse a text file with TYPE ('Type somefile.txt') but you will get much better performance using FOR\ /F File contents (somefile.txt) as that will save loading TYPE.EXE.\\
-							
-							The precedence/priority of FOR command options is: usebackq > skip > delims > eol > tokens
-							
-							usebackq
-							This option is useful when dealing with a command that already contains one or more straight quotes.
-							The backquote character ` is just below the ESC key on most keyboards. See the FOR\ /F page for other effects of usebackq.
-							
-							Usebackq can be abbreviated to useback (undocumented.)
-							
-							Skip
-							SKIP will skip processing a number of lines from the beginning of the file.
-							SKIP includes empty lines, but after the SKIP is complete, FOR\ /F ignores (does not iterate) empty lines.
-							
-							eol
-							The default end-of-line character is a semicolon ';' when the FOR command reads a text file (or even a character string), any line that STARTS with the eol character will be ignored. In other words it is treated as a comment.
-							Use eol=X to change the eol character to X.
-							
-							Often you will want to turn this feature off so that every line of your data file is processed, in theory "eol=" should turn this feature off, but in practice this fails to work correctly - it will set eol to whatever the next character is, often the quote or space character. One workaround is to set eol to some unusual character that you don?t expect to ever encounter in the data file e.g. "eol=?" or "eol=¬". Another method is to escape every delimiter FOR\ /F tokens^=*^ delims^=^ eol^= %%a in (file.txt) do... (see forum for a discussion of this)
-							
-							Delims
-							More than one delimiter can be specified so a string like 'abcd+efg+hijk;lmno;pqr' can be broken up using "delims=;+".
-							
-							You can use any character as a delimiter, but they are case sensitive.
-							If you don?t specify delims it will default to "delims=<tab><space>"
-							
-							n.b. some text editors will enter the TAB character as a series of spaces, specifying more than one delimiter has been known to cause problems with some data sets.
-							
-							Tokens
-							tokens=2,4,6 will cause the second, fourth and sixth items on each line to be processed
-							
-							tokens=2-6 will cause the second, third, fourth, fifth and sixth items on each line to be processed
-							
-							tokens=* will cause all items on each line to be processed
-							
-							tokens=3* will process the third token and the 4th + all subsequent items, this can also be written as tokens=3,*
-							
-							Each token specified will cause a corresponding parameter letter to be allocated. The letters used for tokens are case sensitive.
-							
-							If the last character in the tokens= string is an asterisk, then additional parameters are allocated for all the remaining text on the line.
-							
-							The following ASCII characters can be used as FOR tokens:
-							ASCII 63 - 93 inclusive, 31 tokens: ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ]
-							ASCII 95-123 inclusive, 29 tokens: _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z 
-							
-												(there are a few other characters that can be used, but require escaping)
-							
-							A single FOR\ /F command can never parse more than 31 tokens, to use more requires a workaround with multiple FOR commands.
-							
-							The numbers specified in tokens= are automatically sorted, so for example tokens=5,7,1-3 and tokens=1,2,3,5,7 both produce the same result.
-							
-							Matching the same token more than once (tokens=1,2,1) can give unpredictable results. Token variables can of course be used multiple times: Echo %%G %%H %%G
-							
-							FOR tokens variables (or parameter names) are global, so in complex scripts which call one FOR statement from within another FOR statement you can refer to both sets of parameters.
-							
-							command
-							This can be almost any internal or external command.
-							
-							A common pattern is to set a variable = some token output to make it available for later processing/display. When doing this be sure to read the section Using variables within a FOR loop on the main FOR page.
-							
-							Also consider the case where the command fails, the FOR command will trap the error, but the DO clause is never reached - this means the variable will not be changed. This can cause subtle bugs. When using the FOR command in a batch file always use SETLOCAL at the start to localise all variables. Alternatively you can explicitly clear the variable(s) to remove any existing value, just before running the FOR loop.
-							
-							command_to_process
-							The command_to_process can be almost any internal or external command, but there are a few commands
-							that have no effect when are called through FOR\ /F - SHIFT, SETLOCAL, ENDLOCAL, CALL:Subroutine.
-							To be clear these can be used as part of command, but not command_to_process
-							
-							Examples:
-							
-							To ECHO from the command line, the name of every environment variable.
-							
-							FOR\ /F "delims==" %G IN ('SET') DO @Echo %G
-							The same command with usebackq:
-							
-							FOR\ /F "usebackq delims==" %G IN (`SET`) DO @Echo %G
-							To put the Windows Version into an environment variable
-							
-							@echo off
-							::parse the VER command
-							FOR\ /F "tokens=4*" %%G IN ('ver') DO SET _version=%%G
-							:: show the result
-							echo %_version%
-							
-							//=========================================================================================================//
-							Elenca tutti i file di testo in una cartella:
-							List all the text files in a folder:
-							
-							FOR\ /F "tokens=*" %%G IN ('dir /b C:\docs\*.txt') DO echo %%G
-							The "tokens=*" has been added to match all parts of any long filenames returned by the DIR command.
-							Il "token = *" è stato aggiunto per corrispondere a tutte le parti di tutti i nomi di file lunghi restituiti dal comando DIR.
-							
-							//=========================================================================================================//
-							
-							
-							
-							List all the text files in a folder, including the full path:
-							Elenca tutti i file di testo in una cartella, incluso il percorso completo:
-							
-							FOR\ /F "tokens=*" %%G IN ('dir/b /s ^"c:\program files\*.txt^"') DO echo %%G
-							We use DIR /S (even if the folder has no subfolders) to make DIR return the full path to each file.
-							In the example above the long filename has to be surrounded in "quotes" and those quotes have to be escaped using ^
-							Usiamo DIR / S (anche se la cartella non ha sottocartelle) per fare in modo che DIR ritorni il percorso completo di ciascun file.
-							Nell'esempio sopra il nome del file lungo deve essere racchiuso tra "virgolette" e quelle virgolette devono essere sfuggite usando ^
-							
-							//=========================================================================================================//
-							
-							
-							
-							
-							Although the above is a trivial example, being able to set a variable equal to each long filename in turn allows much more complex processing to be done.
-							
-							More examples can be found on the Syntax / Batch Files pages and the other FOR pages below.
-							
-							FOR does not, by itself, set or clear the Errorlevel.
-							FOR is an internal command.
-							
-							?History never repeats itself, Mankind always does? - Voltaire
-							
-							Related:
-							
-							Sebbene quanto sopra sia un esempio banale, essere in grado di impostare una variabile uguale a
-							ciascun nome di file lungo a sua volta consente l'elaborazione molto più complessa.
-							
-							Altri esempi sono disponibili nelle pagine Sintassi / File batch e nelle altre pagine FOR di seguito.
-							
-							FOR da solo non imposta o cancella il livello di errore.
-							FOR è un comando interno.
-							
-							"La storia non si ripete mai, l'umanità lo fa sempre" - Voltaire
-							
-							FOR - Summary of FOR Loop commands.
-							FOR - Loop through a set of files in one folder.
-							FOR /R - Loop through files (recurse subfolders).
-							FOR /D - Loop through several folders.
-							FOR /L - Loop through a range of numbers.
-							FOR\ /F - Loop through items in a text file.
-							SETLOCAL - Control the visibility of variables inside a FOR loop.
-							FORFILES - Batch process multiple files.
-							GOTO - Direct a batch program to jump to a labelled line.
-							IF - Conditionally perform a command.
-							Powershell: ForEach-Object - Loop for each object in the pipeline.
-							Equivalent bash command (Linux): for - Expand words, and execute commands
-							
-							
-							
-								FOR
-							Conditionally perform a command on several files.
-							Esegui in modo condizionale un comando su più file.
-							
-							Syntax
-							FOR %%parameter IN (set) DO command
-							
-							Key
-							set         : A set of one or more files, separated by any standard delimiter.
-							enclosed in parenthesis (file1,file2). Wildcards can be used.
-							
-							command     : The command to carry out, including any parameters.
-							This can be a single command, or if you enclose it
-							in (brackets), several commands, one per line.
-							
-							%%parameter : A replaceable parameter:
-							e.g. in a batch file use %%G
-							(on the command line %G)
-							Examples
-							
-							Copy a single file
-							FOR %%G IN (MyFile.txt) DO copy %%G d:\backups\
-							
-							Copy a list of several files
-							FOR %%G IN (Myfile.txt SecondFile.txt) DO copy %%G d:\backups\
-							
-							FOR %%G IN ("C:\demo files\file1.txt" "C:\demo files\File2.txt") DO copy %%G d:\backups\
-							
-							The FOR command is mostly used to process files, but you can also process a text string:
-							FOR %%G IN ("Hello World") DO Echo %%G
-							This is not really useful being much the same as Echo Hello World
-							
-							Although wildcards can be used, an alternative method of processing files is to let FOR\ /F process the output of the command 'DIR /b' This can be useful when you want to use DIR options like sorting.
-							
-							Errorlevels
-							The FOR command does not generally set any errorlevels, leaving that to the command being called.
-							One exception is using a wildcard, if the wildcard does not match any files, then FOR will return %ERRORLEVEL% = 5
-							
-							FOR does not, by itself, set or clear the Errorlevel.
-							FOR is an internal command.
-							
-							
-							
-							//---------------------------------------------------------------------------> ESEMPIO_01\\
-							
-							Conditionally perform a command several times.
-							Eseguire condizionalmente un comando più volte.
-							
-							syntax-FOR-Files
-							FOR %%parameter IN (set) DO command
-							
-							
-							Key
-							set         : A set of one or more files, separated by any standard delimiter.
-							enclosed in parenthesis (file1,file2). Wildcards can be used.
-							
-							Un set di uno o più file, separati da qualsiasi delimitatore standard.
-							racchiuso tra parentesi (file1, file2). È possibile utilizzare caratteri jolly.
-							
-							command     : The command to carry out, including any parameters.
-							This can be a single command, or if you enclose it
-							in (brackets), several commands, one per line.
-							
-							Il comando da eseguire, inclusi eventuali parametri.
-							Questo può essere un singolo comando o se lo racchiudi
-							tra parentesi quadre, diversi comandi, uno per riga.
-							
-							%%parameter : A replaceable parameter:
-							e.g. in a batch file use %%G
-							(on the command line %G)
-							
-							Un parametro sostituibile:
-							per esempio. in un file batch usare %% G
-							(sulla riga di comando% G)
-							
-							
-							
-							ESEMPI:
-							Copy a single file = Copia un singolo file
-							FOR %%G IN (MyFile.txt) DO copy %%G d:\backups\
-							
-												
 					}
-									
-									
-	
-
+						\begin{itemize}
+							\item Use double quotes for long file names in "filenameset".
+							\item Use single quotes for 'Text string to process'
+							\item Use back quotes for \detokenize{`command_to_process`}
+						\end{itemize}
+						\detokenize{
+							
+				Usa lo stile di quotazione alternativo:
+				- Usa virgolette doppie per nomi di file lunghi in "filenameset".
+				- Usa virgolette singole per "Stringa di testo da elaborare"
+				- Usa le virgolette per  `command_to_process`
+				------------------------------------------------------------------------------------------------------
+				command_to_process : The output of the 'command_to_process' is
+				passed into the FOR parameter.
+				L'output di "command_to_process" è
+				passato nel parametro FOR.
+				------------------------------------------------------------------------------------------------------
+				
+				command    :   The command to carry out, including any parameters.
+				This can be a single command, or if you enclose it
+				in (brackets), several commands, one per line.
+				Il comando da eseguire, inclusi eventuali parametri.
+				
+				Questo puo' essere un singolo comando o se lo racchiudi
+				tra parentesi quadre, diversi comandi, uno per riga.
+				------------------------------------------------------------------------------------------------------
+				%%parameter :  A replaceable parameter:
+				in a batch file use %%G (on the command line %G)
+				
+				------------------------------------------------------------------------------------------------------
+								------------------------------------------------------------------------------------------------------
+				
+				FOR\ /F
+				processing of a command consists of reading the output from the command one line at a time
+				and then breaking the line up into individual items of data or 'tokens'.
+				The DO command is then executed with the parameter(s) set to the token(s) found.
+				
+				l'elaborazione di un comando consiste nella lettura dell'output dal comando una riga alla volta
+				e quindi suddividere l'allineamento in singoli elementi di dati o "token".
+				Il comando DO viene quindi eseguito con i parametri impostati sul token trovato.
+				
+				------------------------------------------------------------------------------------------------------\\
+				
+				
+				The FOR command is the answer to innumerable questions where you want to take the output of some command,
+				store it in a variable (%%G) then do something with the result.
+				
+				Il comando FOR è la risposta a innumerevoli domande in cui si desidera prendere l'output di alcuni comandi,
+				archiviarlo in una variabile (%% G) quindi fare qualcosa con il risultato.\\
+				
+				------------------------------------------------------------------------------------------------------\\
+				
+				
+				For example the PING command returns serveral lines including one like:
+				
+				Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+				
+				To select that one line of output, you can search for the text "loss" (which is always present), then use the Tokens parameter to select the number of lost packets, here this is 0 but it will vary each time you run the command.
+				
+				set _ping_cmd=ping -n 5 127.0.0.1
+				
+				FOR\ /F "tokens=4 delims=(=" %%G IN ('%_ping_cmd% ^|find "loss"') DO echo Result is [%%G]
+				
+				The tricky part is always splitting up the line of interest into the right tokens, in this case I'm splitting on the characters '=' and '('
+				these two characters split the line into 5 chunks of text and we pull out the fourth one with "tokens=4"
+				
+				By default, /F breaks up the command output at each blank space, and any blank lines are skipped.
+				You can override this default parsing behavior by specifying the "options" parameter. The options must be contained within "quotes"
+				
+				It is possible to use the syntax on this page to parse a text file with TYPE ('Type somefile.txt') but you will get much better performance using FOR\ /F File contents (somefile.txt) as that will save loading TYPE.EXE.\\
+				
+				The precedence/priority of FOR command options is: usebackq > skip > delims > eol > tokens
+				
+				usebackq
+				This option is useful when dealing with a command that already contains one or more straight quotes.
+				The backquote character ` is just below the ESC key on most keyboards. See the FOR\ /F page for other effects of usebackq.
+				
+				Usebackq can be abbreviated to useback (undocumented.)
+				
+				Skip
+				SKIP will skip processing a number of lines from the beginning of the file.
+				SKIP includes empty lines, but after the SKIP is complete, FOR\ /F ignores (does not iterate) empty lines.
+				
+				eol
+				The default end-of-line character is a semicolon ';' when the FOR command reads a text file (or even a character string), any line that STARTS with the eol character will be ignored. In other words it is treated as a comment.
+				Use eol=X to change the eol character to X.
+				
+				Often you will want to turn this feature off so that every line of your data file is processed, in theory "eol=" should turn this feature off, but in practice this fails to work correctly - it will set eol to whatever the next character is, often the quote or space character. One workaround is to set eol to some unusual character that you don?t expect to ever encounter in the data file e.g. "eol=?" or "eol=¬". Another method is to escape every delimiter FOR\ /F tokens^=*^ delims^=^ eol^= %%a in (file.txt) do... (see forum for a discussion of this)
+				
+				Delims
+				More than one delimiter can be specified so a string like 'abcd+efg+hijk;lmno;pqr' can be broken up using "delims=;+".
+				
+				You can use any character as a delimiter, but they are case sensitive.
+				If you don?t specify delims it will default to "delims=<tab><space>"
+				
+				n.b. some text editors will enter the TAB character as a series of spaces, specifying more than one delimiter has been known to cause problems with some data sets.
+				
+				Tokens
+				tokens=2,4,6 will cause the second, fourth and sixth items on each line to be processed
+				
+				tokens=2-6 will cause the second, third, fourth, fifth and sixth items on each line to be processed
+				
+				tokens=* will cause all items on each line to be processed
+				
+				tokens=3* will process the third token and the 4th + all subsequent items, this can also be written as tokens=3,*
+				
+				Each token specified will cause a corresponding parameter letter to be allocated. The letters used for tokens are case sensitive.
+				
+				If the last character in the tokens= string is an asterisk, then additional parameters are allocated for all the remaining text on the line.
+				
+				The following ASCII characters can be used as FOR tokens:
+				ASCII 63 - 93 inclusive, 31 tokens: ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ]
+				ASCII 95-123 inclusive, 29 tokens: _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z 
+				
+									(there are a few other characters that can be used, but require escaping)
+				
+				A single FOR\ /F command can never parse more than 31 tokens, to use more requires a workaround with multiple FOR commands.
+				
+				The numbers specified in tokens= are automatically sorted, so for example tokens=5,7,1-3 and tokens=1,2,3,5,7 both produce the same result.
+				
+				Matching the same token more than once (tokens=1,2,1) can give unpredictable results. Token variables can of course be used multiple times: Echo %%G %%H %%G
+				
+				FOR tokens variables (or parameter names) are global, so in complex scripts which call one FOR statement from within another FOR statement you can refer to both sets of parameters.
+				
+				command
+				This can be almost any internal or external command.
+				
+				A common pattern is to set a variable = some token output to make it available for later processing/display. When doing this be sure to read the section Using variables within a FOR loop on the main FOR page.
+				
+				Also consider the case where the command fails, the FOR command will trap the error, but the DO clause is never reached - this means the variable will not be changed. This can cause subtle bugs. When using the FOR command in a batch file always use SETLOCAL at the start to localise all variables. Alternatively you can explicitly clear the variable(s) to remove any existing value, just before running the FOR loop.
+				
+				command_to_process
+				The command_to_process can be almost any internal or external command, but there are a few commands
+				that have no effect when are called through FOR\ /F - SHIFT, SETLOCAL, ENDLOCAL, CALL:Subroutine.
+				To be clear these can be used as part of command, but not command_to_process
+				
+				Examples:
+				
+				To ECHO from the command line, the name of every environment variable.
+				
+				FOR\ /F "delims==" %G IN ('SET') DO @Echo %G
+				The same command with usebackq:
+				
+				FOR\ /F "usebackq delims==" %G IN (`SET`) DO @Echo %G
+				To put the Windows Version into an environment variable
+				
+				@echo off
+				::parse the VER command
+				FOR\ /F "tokens=4*" %%G IN ('ver') DO SET _version=%%G
+				:: show the result
+				echo %_version%
+				
+				//=========================================================================================================//
+				Elenca tutti i file di testo in una cartella:
+				List all the text files in a folder:
+				
+				FOR\ /F "tokens=*" %%G IN ('dir /b C:\docs\*.txt') DO echo %%G
+				The "tokens=*" has been added to match all parts of any long filenames returned by the DIR command.
+				Il "token = *" è stato aggiunto per corrispondere a tutte le parti di tutti i nomi di file lunghi restituiti dal comando DIR.
+				
+				//=========================================================================================================//
+				
+				
+				
+				List all the text files in a folder, including the full path:
+				Elenca tutti i file di testo in una cartella, incluso il percorso completo:
+				
+				FOR\ /F "tokens=*" %%G IN ('dir/b /s ^"c:\program files\*.txt^"') DO echo %%G
+				We use DIR /S (even if the folder has no subfolders) to make DIR return the full path to each file.
+				In the example above the long filename has to be surrounded in "quotes" and those quotes have to be escaped using ^
+				Usiamo DIR / S (anche se la cartella non ha sottocartelle) per fare in modo che DIR ritorni il percorso completo di ciascun file.
+				Nell'esempio sopra il nome del file lungo deve essere racchiuso tra "virgolette" e quelle virgolette devono essere sfuggite usando ^
+				
+				//=========================================================================================================//
+				
+				
+				
+				
+				Although the above is a trivial example, being able to set a variable equal to each long filename in turn allows much more complex processing to be done.
+				
+				More examples can be found on the Syntax / Batch Files pages and the other FOR pages below.
+				
+				FOR does not, by itself, set or clear the Errorlevel.
+				FOR is an internal command.
+				
+				?History never repeats itself, Mankind always does? - Voltaire
+				
+				Related:
+				
+				Sebbene quanto sopra sia un esempio banale, essere in grado di impostare una variabile uguale a
+				ciascun nome di file lungo a sua volta consente l'elaborazione molto più complessa.
+				
+				Altri esempi sono disponibili nelle pagine Sintassi / File batch e nelle altre pagine FOR di seguito.
+				
+				FOR da solo non imposta o cancella il livello di errore.
+				FOR è un comando interno.
+				
+				"La storia non si ripete mai, l'umanità lo fa sempre" - Voltaire
+				
+				FOR - Summary of FOR Loop commands.
+				FOR - Loop through a set of files in one folder.
+				FOR /R - Loop through files (recurse subfolders).
+				FOR /D - Loop through several folders.
+				FOR /L - Loop through a range of numbers.
+				FOR\ /F - Loop through items in a text file.
+				SETLOCAL - Control the visibility of variables inside a FOR loop.
+				FORFILES - Batch process multiple files.
+				GOTO - Direct a batch program to jump to a labelled line.
+				IF - Conditionally perform a command.
+				Powershell: ForEach-Object - Loop for each object in the pipeline.
+				Equivalent bash command (Linux): for - Expand words, and execute commands
+				
+				
+				
+					FOR
+				Conditionally perform a command on several files.
+				Esegui in modo condizionale un comando su più file.
+				
+				Syntax
+				FOR %%parameter IN (set) DO command
+				
+				Key
+				set         : A set of one or more files, separated by any standard delimiter.
+				enclosed in parenthesis (file1,file2). Wildcards can be used.
+				
+				command     : The command to carry out, including any parameters.
+				This can be a single command, or if you enclose it
+				in (brackets), several commands, one per line.
+				
+				%%parameter : A replaceable parameter:
+				e.g. in a batch file use %%G
+				(on the command line %G)
+				Examples
+				
+				Copy a single file
+				FOR %%G IN (MyFile.txt) DO copy %%G d:\backups\
+				
+				Copy a list of several files
+				FOR %%G IN (Myfile.txt SecondFile.txt) DO copy %%G d:\backups\
+				
+				FOR %%G IN ("C:\demo files\file1.txt" "C:\demo files\File2.txt") DO copy %%G d:\backups\
+				
+				The FOR command is mostly used to process files, but you can also process a text string:
+				FOR %%G IN ("Hello World") DO Echo %%G
+				This is not really useful being much the same as Echo Hello World
+				
+				Although wildcards can be used, an alternative method of processing files is to let FOR\ /F process the output of the command 'DIR /b' This can be useful when you want to use DIR options like sorting.
+				
+				Errorlevels
+				The FOR command does not generally set any errorlevels, leaving that to the command being called.
+				One exception is using a wildcard, if the wildcard does not match any files, then FOR will return %ERRORLEVEL% = 5
+				
+				FOR does not, by itself, set or clear the Errorlevel.
+				FOR is an internal command.
+				
+				
+				
+				//---------------------------------------------------------------------------> ESEMPIO_01\\
+				
+				Conditionally perform a command several times.
+				Eseguire condizionalmente un comando più volte.
+				
+				syntax-FOR-Files
+				FOR %%parameter IN (set) DO command
+				
+				
+				Key
+				set         : A set of one or more files, separated by any standard delimiter.
+				enclosed in parenthesis (file1,file2). Wildcards can be used.
+				
+				Un set di uno o più file, separati da qualsiasi delimitatore standard.
+				racchiuso tra parentesi (file1, file2). È possibile utilizzare caratteri jolly.
+				
+				command     : The command to carry out, including any parameters.
+				This can be a single command, or if you enclose it
+				in (brackets), several commands, one per line.
+				
+				Il comando da eseguire, inclusi eventuali parametri.
+				Questo puo' essere un singolo comando o se lo racchiudi
+				tra parentesi quadre, diversi comandi, uno per riga.
+				
+				%%parameter : A replaceable parameter:
+				e.g. in a batch file use %%G
+				(on the command line %G)
+				
+				Un parametro sostituibile:
+				per esempio. in un file batch usare %% G
+				(sulla riga di comando% G)
+				\\
 		
 		
-		
-		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//\\
-			FOR  *** FINE ***\\
-		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//\\
+				ESEMPI:
+				Copy a single file = Copia un singolo file
+				FOR %%G IN (MyFile.txt) DO copy %%G d:\backups\
+			
+				}
+							
+		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
+			FOR  *** FINE ***
+		//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
 		
 	\chapter{FOR - CICLO}
 		\subsubsection{FOR CICLO - Archivia Cartelle SENZA PATH}			
 		\label{FOR:Archivia-cartelleSenzaPath}
-		Il ciclo for esempi:Il Ciclo for per archiviare le cartelle viene indicato nell'esempio \textbf{ESEMPIO 27}			NOME FILE .....
+		Il ciclo for esempi:Il Ciclo for per archiviare le cartelle viene indicato nell'esempio \textbf{ESEMPIO 27}			
+		NOME FILE .....\\
 		\detokenize{
 			echo off
 			
@@ -976,7 +971,6 @@
 		path relativa.
 		
 		Esempio\\
-		\detokenize{....}
 		
 		
 		\subsubsection{FOR ZIP FILE SU UNICO ZIP CON LISTA PARAMETRI}	
@@ -985,13 +979,15 @@
 		%Esempio:-->    ./DETERMINE_Mdl02_ROUTINE_CODICE_APERTURA_FORM_(LPDD_DETERMINE).txt
 		%%//------------------------------->APRO FILE PATH RELATIVA.
 		\href{run:./DOS_ESEMPI/FOR/DOS_FOR_N33_FOR_(5_Scelte).ZIP}{....Modulo Apri ESEMPIO DOS ZIP FILE CON FILE PARAMETRI.TXT}
-		\label{FOR:EspansioneRitardata-ESEMPIO}{......ESEMPIO DI ESPANSIONE RITARDATA}	
+		\label{FOR:EspansioneRitardata-ESEMPIOZIP}{......ESEMPIO DI ESPANSIONE RITARDATA}	
 		
+
+
 		Ciclo for di salvataggio dei file selezionati con il filetro del ciclo for es
 		(*.mdb) che crea un elenco di file *.mdb salvati in file di testo .txt il quale
 		viene ripreso dal rar.exe come lista parametri
 		Esempio\\
-		\detokenize  {....
+		\detokenize{....
 			@REM //==========================================================================================//
 			@REM :03 onearc ---> Comprimi tutti i file in dir in un singolo archivio (senza sottodir)
 			@REM //==========================================================================================//
@@ -1049,7 +1045,7 @@
 			echo.   															>> FILE_COMANDO_03.txt
 			echo.   															>> FILE_COMANDO_03.txt
 			
-			echo. TOTALE NRO FILE SALVATI : !TotNro!  						>> FILE_COMANDO_03.txt
+			echo. TOTALE NRO FILE SALVATI : !TotNro!  							>> FILE_COMANDO_03.txt
 			echo.   															>> FILE_COMANDO_03.txt
 			echo.   															>> FILE_COMANDO_03.txt
 			echo. ------------------------------------------------------  	    >> FILE_COMANDO_03.txt
@@ -1067,9 +1063,11 @@
 			
 		}	
 		
+
+		
 		\subsubsection{FOR ESEMPIO ESPANSIONE RITARDATA}									
 		\label{FOR:EspansioneRitardata-SubParagrafo}
-		\vref{FOR:EspansioneRitardata-ESEMPIO}{......ESEMPIO ESPANSIONE RITARDATA}
+		\label{FOR:EspansioneRitardata-ESEMPIO}{......ESEMPIO ESPANSIONE RITARDATA}
 		
 		Esempio\\
 		\detokenize{....
@@ -1102,14 +1100,9 @@
 		\label{FOR:MODELLO-1}
 		
 		Esempio\\
-		\detokenize  {....
-			
+		\detokenize{....	
 			
 		}	
-		
-		
-		
-		
 		
 		
 		
@@ -1128,7 +1121,7 @@
 				
 		\section{DIR Parametri File+Directory /A:}
 		\label{DIR:Parametri-/A[..]}{... vedi pag.27}
-		
+		\\
 				DIR CON I Parametri
 				[unità:][percorso]
 				Specifica l'unità e la directory di cui si desidera visualizzare l'elenco.
@@ -1162,9 +1155,10 @@
 					File di sola lettura
 					-R
 					File non di sola lettura
-					
+					\\
+			
 		\section{DIR Parametri Ordinamento /O[:]}
-			\label{DIR:Parametri-Ordinamento/O[..]}{... vedi pag.27}
+		\label{DIR:Parametri-Ordinamento}{... vedi pag.27}
 							/O[[:] tipoordinamento]
 							Controlla l'ordine in cui il comando DIR ordina e visualizza i nomi delle directory e dei file. Se questa opzione viene
 							omessa, il comando DIR visualizzerà i nomi nell'ordine in cui compaiono all'interno della directory. Se invece l'opzione
@@ -1219,14 +1213,17 @@
 							dell'utilizzo di un carattere jolly, vedere la schermata "Esempi".
 							
 							
-							Guida a MS-DOS
+							Guida a MS-DOS PAG 30
 							
-							30
+									
+						
 							
 				\section{DIR ES. file di sola lettura o nascosti :/A:R-H o /AR-H}
 							Per specificare gli attributi per la visualizzazione dei file
 							Se viene specificata l'opzione /A con più di un valore per attributi, il comando DIR visualizzerà soltanto i file con gli attributi specificati. Ad esempio, se si specifica l'opzione /A con i valori R e -H per attributi utilizzando cioé /A:R-H o /AR-H, DIR visualizza soltanto i nomi dei file di sola lettura nascosti.
-				\section{DIR ES. Ordina le directory e file dal piu grande
+\					
+					
+				\section{DIR ES. Ordina le directory e file dal piu grande}
 							Per specificare il tipo di ordinamento dei file
 							Se si specifica più di un valore per tipo ordinamento, il comando DIR elenca i file prima secondo l'ordine specificato dal 
 							primo valore e poi secondo l'ordine specificato dai successivi valori. Ad esempio, se si specifica l'opzione:\\
@@ -1242,6 +1239,8 @@
 							Utilizzo dei simboli di reindirizzamento e delle pipe
 							Quando l'output del comando DIR viene reindirizzato ad un file tramite un simbolo di reindirizzamento (>) oppure ad un altro comando tramite una pipe (|), si utilizzano le opzioni /A:-D e /B per elencare solo i nomi dei file. 
 							
+						
+							
 							E' possibile
 							utilizzare il parametro nomefile con le opzioni /B e /S per indicare a DIR di ricercare nella directory corrente e nelle sue
 							sottodirectory tutti i file che corrispondono a nomefile. Per ciascun file individuato, il comando DIR elenca solo la lettera
@@ -1250,7 +1249,7 @@
 							AUTOEXEC.BAT. In caso contrario, il file temporaneo apparirà nell'elenco delle directory.
 							Preimpostazione delle opzioni e dei parametri del comando dir
 							E' possibile preimpostare i parametri e le opzioni del comando DIR includendo il comando SET con la variabile di
-							ambiente DIRCMD nel file AUTOEXEC.BAT. Con il comando SET DIRCMD può essere utilizzata qualsiasi
+							ambiente DIRCMD nel file AUTOEXEC.BAT. Con il comando SET DIRCMD puo' essere utilizzata qualsiasi
 							combinazione di parametri e opzioni, inclusa la posizione e il nome di un file.
 							Ad esempio, per utilizzare la variabile di ambiente DIRCMD per impostare la visualizzazione formato ampio (/W) come
 							formato predefinito, aggiungere il seguente comando nel file AUTOEXEC.BAT:
@@ -1273,6 +1272,7 @@
 							Guida a MS-DOS
 							
 							31
+								
 							
 							Esempi
 							S i supponga di voler visualizzare tutti i file e le sottodirectory di una directory, compresi i file nascosti o di sistema. Per
@@ -1284,25 +1284,28 @@
 							principale, quindi digitare:
 							dir /s/w/o/p
 							
+								
+							
 							DIR elenca il nome della directory principale, il nome di tutte le sottodirectory con i nomi dei file (completi di estensione)
 							contenuti nella directory principale. Quindi, passerà ad elencare le sottodirectory e tutti i file contenuti in ciascuna di esse.
 							Se si desidera che il comando DIR visualizzi i file e l'estensione omettendo le directory, digitare il comando seguente:
 							\\
 							 dir /s/w/o/p/a:-d 
 							
-							\\
+			
+						
 							STAMPA ELENCO DIRECTORY:\\ 
 							Per stampare l'elenco di una directory, digitare il simbolo di reindirizzamento e PRN dopo il comando DIR, come
 							nell'esempio che segue:
 							dir > prn
-							
+									
 							Quando sulla riga di comando DIR viene specificato PRN, l'elenco della directory viene inviata alla stampante collegata alla
 							porta LPT1. Se la stampante é collegata a un'altra porta, PRN va sostituito con il nome della porta corretta.
 							E' anche possibile reindirizzare l'output del comando DIR ad un file sostituendo PRN con il nome del file. Sulla riga di
 							comando é possibile anche immettere un percorso. Ad esempio, per reindirizzare l'output di DIR al file DIR.DOC nella
 							directory RECORD, digitare il seguente comando:\\
-							\detokenize  {dir > \record\dir.doc}
-							
+							dir > \\record\\dir.doc
+						
 							Se il file DIR.DOC non esiste, ma esiste la directory RECORD, MS-DOS crea il file. Se non esiste neppure la directory, MS-
 							DOS visualizza il seguente messaggio:
 							Errore di creazione del file
@@ -1314,8 +1317,7 @@
 							DIR visualizzerà, in formato ampio, un elenco in ordine alfabetico dei file TXT di ciascuna directory sospendendo la visualizzazione di ogni schermata fino a che non viene premuto un tasto.
 							
 							
-		
-		
+	
 		
 		\chapter{SET}
 		\subsubsection{SET ESPANSIONE RITARDATA}									
@@ -1329,18 +1331,18 @@
 		Il comando set per le variabili numeriche
 		
 
-
 \chapter{ESEMPI DOS}
 	\section{ZIP FILE}
 		\subsection{Zip file senza cartelle - rar.exe}
 		Salvataggio nella directory corrente solo i file senza la directory 
 		e con il file .txt di elenco dei salvataggi.\\
-		Il file si trova in questa directory con il nome: detokenize{	c:\CASA\LINGUAGGI\DOS\DOS_ARCHIVI\DOS_ESEMPI\ZIP\ZipRAR_01_(FILE_DirectoryCorrente).bat}.\\
+		
+		
+	
+		Il file si trova in questa directory con il nome: \detokenize{	c:\CASA\LINGUAGGI\DOS\DOS_ARCHIVI\DOS_ESEMPI\ZIP\ZipRAR_01_(FILE_DirectoryCorrente).bat}.\\
 		Apri l'esempio file zip:\\
 		%%//------------------------------->APRO FILE PATH RELATIVA.
-		\href{run:./MODELLO_LATEX_APRI_(DOS_APRI_FILE).bat}{....Modulo Apri IL MODELLO LATEX }
-		
-		
+		\href{run:./MODELLO_LATEX_APRI_(DOS_APRI_FILE).bat}{....Modulo Apri IL MODELLO LATEX}
 		
 		\chapter{LATEX MODELLO}
 		Per attivare il latex modello ricopia questo capitolo tenendo presente che il file
@@ -1359,10 +1361,10 @@
 				\detokenize{MODELLO_LATEX_APRI.\}-----------------------------------------------------@.txt} & 1 &  \\ 
 				\hline 
 				\detokenize{MODELLO_LATEX_APRI_(DOS_APRI_FILE).bat} & 2 & File bat da posizionare in cartella
-				dove si trova il nuovo latex  \\ 
+				                                                          dove si trova il nuovo latex \\ 
 				\hline 
 				\detokenize{MODELLO_LATEX_APRI_(DOS_APRI_FILE)_(PARAMETRI).txt} & 3 & attenzione alla path da 
-				cambiare da h:\....
+				cambiare da h:....
 				a c:\...    \\ 
 				\hline
 				\detokenize{...................} & 4  &  \\ 
@@ -1381,9 +1383,6 @@
 		%%//------------------------------->APRO FILE PATH RELATIVA.
 		\href{run:./MODELLO_LATEX_APRI_(DOS_APRI_FILE).bat}{....Modulo Apri IL MODELLO LATEX }
 		
-	}		
-		
-	
 
 \end{document}
 
