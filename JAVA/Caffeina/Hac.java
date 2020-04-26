@@ -9,15 +9,15 @@ public class Hac{
     public static void main(String[] args) throws Exception{
         Robot hal = new Robot();
         Random random = new Random();
-        int tempo = 6;
+        int tempo = 15;
         // bloccato per il controllo
-        System.out.println("Ora il mouse si dovrebbe muovere ogni tanto");     
-        //ciclo infinto di impostazioni del mouse con x,y random
+        System.out.println("Ora il mouse si dovrebbe muovere ogni tanto. Per terminare, Su Intellij premi Ctrl+(Fn)+F2, su linea di comando premi Ctrl+C.");
+        //ciclo infinito di spostamenti del mouse con x,y random
         while(true){
             //ritardo 6.000 secondi
             hal.delay(1000 * tempo);
-            int x = random.nextInt() % 1366;
-            int y = random.nextInt() % 768;
+            int x = random.nextInt() % 640;
+            int y = random.nextInt() % 480;
             //comando muovi mouse
             hal.mouseMove(x,y);
         }
