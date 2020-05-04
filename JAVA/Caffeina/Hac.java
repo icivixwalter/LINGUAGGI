@@ -10,6 +10,7 @@ public class Hac{
         Robot hal = new Robot();
         Random random = new Random();
         int tempo = 15;
+        int icount =0;  //contatore
         // bloccato per il controllo
         System.out.println("Ora il mouse si dovrebbe muovere ogni tanto. Per terminare, Su Intellij premi Ctrl+(Fn)+F2, su linea di comando premi Ctrl+C.");
         //ciclo infinito di spostamenti del mouse con x,y random
@@ -18,8 +19,15 @@ public class Hac{
             hal.delay(1000 * tempo);
             int x = random.nextInt() % 640;
             int y = random.nextInt() % 480;
+
+            //stampo il contatore del tempo
+            icount=icount+1;
+            System.out.println("Stampo nro di spostamenti mouse: "+ icount );
+
             //comando muovi mouse
             hal.mouseMove(x,y);
+            
+
         }
     }
 }
