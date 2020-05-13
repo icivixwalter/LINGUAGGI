@@ -1,0 +1,12 @@
+<resources>
+    <!-- ho inserito il nuovo nome del PROGETTO IN
+                    PROGETTO Hello..           -->
+    <string name="app_name" translatable="false">Hello Toast Challenge</string>
+    <string name="button_label_toast" translatable="false">Toast</string>
+    <string name="button_label_count">Count</string>
+    <string name="zero_number" translatable="false">0</string>
+
+    <!-- inserisco un nuovo messaggio -->
+    <string name="toast_message">HELLO TOAST!</string>
+    <string name="zero_label" translatable="false">ZERO</string>
+</resources>

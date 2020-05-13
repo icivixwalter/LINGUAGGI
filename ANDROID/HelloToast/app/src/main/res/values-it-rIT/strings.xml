@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="button_label_count">Contatore</string>
+    <string name="toast_message">MESSAGGIO HELLO TOAST!</string>
+</resources>
