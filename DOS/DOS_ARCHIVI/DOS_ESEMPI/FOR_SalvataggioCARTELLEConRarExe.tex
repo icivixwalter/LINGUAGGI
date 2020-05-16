@@ -1,0 +1,70 @@
+\documentclass[10pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+	\subsection{FOR Ciclo di SALVAGGIO CARTELLE CON RAREXE}
+	\label{FOR:SALVATAGGI-DirectoryConRAR}{....CICLO FOR DI SALVATAGGI CON RAR.EXE}
+	Esempio comprimi le directory e sottodirectory con un CICLO FOR che costruisce
+	una directory XAA\_SALVATAGGI nel quale comprimere con il comando rar tutte le
+	directory. E' importante applicare il ciclo solo sulle directory create in quella
+	corrente. Non salva i file esterni e se non ci sono directory già create non salva nulla.
+	\\
+	ESEMPIO:\\
+	
+	\detokenize{
+		
+		echo off
+		
+		:----------------------------SET DELLE VARIABILI PATH DI PARTENZA ED ARRIVO
+		
+		@REM Se non esiste la cartella XX_SALVATAGGI, la crea.
+		if not exist "%cd%\XX_SALVATAGGI\" (
+		echo Crea la cartella XX_SALVATAGGI
+		mkdir %cd%\XX_SALVATAGGI
+		)
+		
+		set PATH_ARRIVO_s="%cd%\XX_SALVATAGGI\"
+		
+		echo. 
+		echo controllo della path di ARRIVO:
+		echo "PATH ARRIVO: " %PATH_ARRIVO_s%
+		
+		
+		:----------------------CICLO_FOR= Ciclo For su ogni riga del comando DIR (senza dettagli con le sottocartelle)
+		echo Prova DIR
+		
+		@REM L'unico modo per salvare SOLO le cartelle e non i file. Se vuoi salvare anche i file RIMUOVI /A:d
+		for /f "tokens=*" %%G in ('dir /B /A:d %cd%') do (
+		
+		@REM Per ogni cartella diversa da XX_SALVATAGGI...
+		echo controllo directory in esame %%G
+		echo controllo path da escludere %PATH_ARRIVO_s%
+		IF NOT %%~nG==XX_SALVATAGGI (
+		echo --------------  Estraggo "%%~nG" e salvo nella path di arrivo.
+		@REM non ci deve essere spazio altrimenti il nome del file viene con lo spazio SI=%PATH_ARRIVO_s%%%~nG ... NO=%PATH_ARRIVO_s% %%~nG
+		C:\CASA\Rar.exe a -ep1 "%PATH_ARRIVO_s%%%~nG" "%%~fG"
+		)
+		)
+		eof
+		
+		
+		@REM //NOTE DI FUNZIONAMENTO
+		@REM //============================================================================//
+		@REM attenzione per il salvataggio sono stati utilizzati questi parametri:
+		@REM dir 	/b = elenca il contenuto della cartella corrente senza dettagli
+		@REM 	/s = Mostra il percorso completo di ogni file/cartella E DELLE SOTTOCARTELLE!!!!
+		@REM 	/a:d = include SOLO LE CARTELLE (escluso perche altrimenti salvava ogni singolo
+		@REM 	file della sottocartella in un zip)
+		@REM COMANDO rar
+		@REM rar.exe	-ep1= esclude la path nel .zip e inserisce solo il nome della sottocartella nell'archivio.	
+		
+		
+		
+		
+		
+	}
+	
+\end{document}
