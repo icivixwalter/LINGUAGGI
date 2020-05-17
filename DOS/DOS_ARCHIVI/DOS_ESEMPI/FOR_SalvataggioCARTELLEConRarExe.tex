@@ -5,7 +5,454 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \begin{document}
-	\subsection{FOR Ciclo di SALVAGGIO CARTELLE CON RAREXE}
+	
+	\subsection{FOR SALVATAGGIO CARTELLA + RAR.EXE + FILE LOG}
+		\label{FOR:SALVATAGGI-DirectoryConRAR+LOG}{....CICLO FOR DI SALVATAGGI CON RAR.EXE + FILE LOG.TXT}
+		Ciclo for di salvataggio DELLE SOLE CARTELLE e sottodirectory in esse contenute.
+		Non sono ammessi salvataggi esterni. Utilizza il RAR.EXE ed ha in più la particolarita
+		di costruire un FILE LOG.TXT che contiene le operazioni di salvataggio.
+		\\
+		Per utilizzarlo basta cambiare i parametri sopra in testata.
+		\\
+		Il file è stato denominato $Vittoria_N01_SALVATAGGI_CICLO_FOR+LOG.bat$ e vengono
+		uniti i file cripta e decodifica per attivare il controllo a mano, entrambi denominati in\\
+		$Vittoria_N70_CRIPTA.bat$\\
+		$Vittoria_N70_DECODIFICA.bat$\\
+		La procedura esegue il salvataggio in una directori denominata XSALVATAGGI il cui nome può
+		essere cambiato nei parametri, venendo creata quando essa non esiste. In questa directory
+		vengono salvati prima i file .rar che alla fine del processo vengono criptati in .GE614 
+		unitamente al file log del dos .txt
+		\\
+		ESEMPIO:\\
+		
+		\detokenize{
+			@REM  ***************************************************************
+			
+			@REM      file batch : Salva-C rar
+			@REM      directory = c:\Casa\CDM\Vittoria\ ; \DOC  e \STAMPE
+			@REM      file WinRAR
+			
+			@REM   ***************************************************************
+			
+			
+			@REM 					LE SOSTITUZIONI GENERALI
+			@REM @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			
+			@REM  		Disco e codice Disco
+			@REM .......................................................
+			@REM -----> 	C:
+			@REM -----> 	_C
+			@REM .......................................................
+			
+			
+			@REM		directory y dove archiviare i dati
+			@REM .......................................................
+			@REM ----->	C:\CASA\CDM\VITTORIA\
+			@REM .......................................................
+			
+			
+			@REM 		Il nome di tutti i file di archivio dei dati
+			@REM .......................................................
+			@REM ----->	Vittoria_
+			
+			
+			@REM 		Il file di archivio dei dati
+			@REM .......................................................
+			@REM ----->	*.GE614
+			
+			
+			@REM 		I parametri relativi al file log + msg + path
+			@REM .......................................................
+			@REM ----->	PATH_S=c:\Casa\CDM\Vittoria\XX_SALVATAGGI\
+			@REM ----->	FILE_LOG_S=VittoriaFileLOG.txt
+			@REM ----->	MSG_S=MSG 01 - SALVATAGGIO CARTELLE VITTORIA CON CICLO FOR E RAR.EXE
+			
+			
+			
+			
+			@REM 					LE SOSTITUZIONI GENERALI *** FINE ***
+			@REM @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			
+			
+			
+			
+			ECHO OFF
+			CLS
+			
+			
+			@REM 			SALVATAGGIO DATI
+			REM *************************************************************************************************************************
+			
+			@REM			MESSAGGIO OPERAZIONE
+			@REM -----------------------------------------------------------------------------------------
+			echo  "============================================================="
+			echo.				INIZIO
+			echo.	MSG - SALVATAGGIO DATI - Vittoria_N05_ARCHIVI_BAT.GE614
+			echo.  
+			echo.
+			echo  "============================================================="
+			
+			@REM			MESSAGGIO OPERAZIONE *** FINE ***
+			@REM -----------------------------------------------------------------------------------------
+			
+			
+			@REM			OPERAZIONE DI SALVATAGGIO
+			@REM -----------------------------------------------------------------------------------------
+			
+			@REM RESET VARIABILI --- Imposto la path di criptagio e decriptaggio
+			@SET PATH_S=c:\Casa\CDM\Vittoria\XX_SALVATAGGI\
+			@SET FILE_LOG_S=VittoriaFileLOG.txt
+			@SET MSG_S=MSG 01 - SALVATAGGIO CARTELLE VITTORIA CON CICLO FOR E RAR.EXE
+			
+			
+			
+			:----------------------------INIZIO = Creo il file
+			echo %MSG_S%											> %PATH_S%%FILE_LOG_S%
+			
+			:----------------------------CONTROLLO se esiste la directory 
+			
+			
+			@SET MSG_S= MSG 02 - "if exist "SE ESISTE LA cartella XX_SALVATAGGI, VIENE ATTIVATA LA DECODIFICA DEI FILE .GE614 IN RAR
+			echo .											>> %PATH_S%%FILE_LOG_S%
+			echo .CONTROLLO DI ESISTENZA DIRECTORY							>> %PATH_S%%FILE_LOG_S%
+			echo "%cd%\XX_SALVATAGGI\"								>> %PATH_S%%FILE_LOG_S%
+			echo ."..............................................................." 		>> %PATH_S%%FILE_LOG_S%
+			
+			echo .											>> %PATH_S%%FILE_LOG_S%
+			
+			@REM RESET VARIABILE INTERNA deve stare all'esterno della if altrimenti deve essere una variabile a espansione ritardata
+			@SET CODICE_S=" CODICE -> CONTROLLO ESISTENZA DIRECTORY - > "
+			if exist "%cd%\XX_SALVATAGGI\" (
+			
+			ECHO 01 INIZIO %CODICE_S%
+			
+			echo .										>> %PATH_S%%FILE_LOG_S%
+			echo .										>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo   OPERAZIONE %MSG_S%	" *****INIZIO****** "				>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo .										>> %PATH_S%%FILE_LOG_S%
+			echo %MSG_S%									>> %PATH_S%%FILE_LOG_S%
+			echo .										>> %PATH_S%%FILE_LOG_S%
+			echo .										>> %PATH_S%%FILE_LOG_S%
+			
+			echo "................CREO IL FILE VITTORIA_LOG..........."			>> %PATH_S%%FILE_LOG_S%
+			echo .										>> %PATH_S%%FILE_LOG_S%
+			
+			
+			ECHO 02 "OPERAZIONE %MSG_S% "	%CODICE_S%	 
+			@REM//DECODIFICA I FILE G614 IN RAR
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "OPERAZIONE %MSG_S%"							>> %PATH_S%%FILE_LOG_S%
+			echo. "MSG --->DECODIFICA I FILE DA .GE614 IN .RAR"				>> %PATH_S%%FILE_LOG_S%
+			echo "-------------------------------------------------------"  		>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "decodifico i file .GE614 in .RAR con rename"				>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			
+			
+			ECHO  03 STAMPO ELENCO DA DECODIFICARE *.GE614 %CODICE_S%
+			echo.
+			echo. " stampo elenco DIR *.GE614 da decodificare"				>> %PATH_S%%FILE_LOG_S%
+			echo. " ..........................................."				>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			
+			
+			ECHO  04 Stampo il contenuto della directory nel file.txt *.GE614 %CODICE_S%
+			DIR %PATH_S%*.GE614 		@rem faccio il controllo con dir					
+			DIR %PATH_S%*.GE614 								>> %PATH_S%%FILE_LOG_S%
+			
+			
+			
+			ECHO 04 APPLICO IL COMANDO RENAME  %CODICE_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "DECODIFICO dei file da *.GE614 A .RAR"					>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			@RENAME %PATH_S%*.GE614  *.RAR
+			
+			
+			
+			echo.
+			echo. " Sopra l'elenco dei file CODIFICATI IN .GE64"				>> %PATH_S%%FILE_LOG_S%
+			echo. " ..........................................."				>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo. "                  *****fine ******                     "			>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			
+			@REM STOP PROCEDURA ->  PAUSE echo. "PAUSE in questa POSIZIONE ------->" 
+			
+			) ELSE (
+			
+			@SET MSG_S= MSG 03 - SE NON ESISTE LA DIRECTORY  IL DECRITPAGGIO NON VIENE ESEGUITO.
+			
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo   OPERAZIONE %MSG_S%	" *****INIZIO****** "				>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			
+			echo. "MSG --->DECODIFICA I FILE DA .GE614"					>> %PATH_S%%FILE_LOG_S%
+			echo. "For di salvataggi delle CARTELLE con RAR.EXE"				>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo. "                  *****fine ******                     "			>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			
+			)
+			
+			
+			
+			
+			echo off
+			
+			:------------------------------------------IMPOSTO IL MESSAGGIO + TITOLO + FINE
+			@SET MSG_S= MSG 05 - SE NON ESISTE LA DIRECTORY  VIENE CREATA LA DIRECTORY "%cd%\XX_SALVATAGGI\"
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo  " 		*****INIZIO****** 		      "			>> %PATH_S%%FILE_LOG_S%
+			echo   OPERAZIONE %MSG_S%							>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			
+			:----------------------------SET DELLE VARIABILI PATH DI PARTENZA ED ARRIVO
+			
+			@REM Se non esiste la cartella XX_SALVATAGGI, la crea.
+			if not exist "%cd%\XX_SALVATAGGI\" (
+			echo Crea la cartella XX_SALVATAGGI
+			mkdir %cd%\XX_SALVATAGGI
+			
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo  " CREATA LA DIRECTORY 				      "			>> %PATH_S%%FILE_LOG_S%
+			echo   "%cd%\XX_SALVATAGGI\" 						>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo. "                  *****fine ******                     "			>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			
+			)
+			
+			set PATH_ARRIVO_s="%cd%\XX_SALVATAGGI\"
+			
+			echo. 
+			echo controllo della path di ARRIVO:
+			echo "PATH ARRIVO: " %PATH_ARRIVO_s%
+			
+			
+			:----------------------CICLO_FOR= Ciclo For su ogni riga del comando DIR (senza dettagli con le sottocartelle)
+			
+			
+			@REM L'unico modo per salvare SOLO le cartelle e non i file. Se vuoi salvare anche i file RIMUOVI /A:d
+			for /f "tokens=*" %%G in ('dir /B /A:d %cd%') do (
+			
+			@REM Per ogni cartella diversa da XX_SALVATAGGI...
+			echo controllo directory in esame %%G
+			echo controllo path da escludere %PATH_ARRIVO_s%
+			
+			
+			@REM //NOTE DI FUNZIONAMENTO
+			@REM //============================================================================//
+			@REM attenzione per il salvataggio sono stati utilizzati questi parametri:
+			@REM dir 	/b = elenca il contenuto della cartella corrente senza dettagli
+			@REM 		/s = Mostra il percorso completo di ogni file/cartella E DELLE SOTTOCARTELLE!!!!
+			@REM 		/a:d = include SOLO LE CARTELLE (escluso perche altrimenti salvava ogni singolo
+			@REM 		file della sottocartella in un zip)
+			@REM 		COMANDO rar
+			@REM rar.exe	-ep1= esclude la path nel .zip e inserisce solo il nome della sottocartella nell'archivio.	
+			
+			
+			IF NOT %%~nG==XX_SALVATAGGI (
+			echo --------------  Estraggo "%%~nG" e salvo nella path di arrivo.
+			@REM non ci deve essere spazio altrimenti il nome del file viene con lo spazio SI=%PATH_ARRIVO_s%%%~nG ... NO=%PATH_ARRIVO_s% %%~nG
+			C:\CASA\Rar.exe a -ep1 "%PATH_ARRIVO_s%%%~nG" "%%~fG"
+			
+			@SET MSG_S= MSG 06 - ELENCO FILE INSERITI NEL RAR
+			echo.									>> %PATH_S%%FILE_LOG_S%
+			echo.									>> %PATH_S%%FILE_LOG_S%
+			echo. %MSG_S%								>> %PATH_S%%FILE_LOG_S%		
+			echo.									>> %PATH_S%%FILE_LOG_S%
+			DIR "%PATH_ARRIVO_s%%%~nG" "%%~fG"					>> %PATH_S%%FILE_LOG_S%
+			
+			
+			
+			
+			)
+			)
+			
+			
+			
+			
+			@REM @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			@REM 			TITOLO OPERAZIONE
+			@REM
+			@SET CODICE_S= SALVATAGGIO DEI FILE .BAT + TXT
+			@REM ........................................................................................
+			@REM ..........................................................
+			@REM NOTE = set deve stare al di fuori della if altrimenti 
+			@REM non funziona, forse è dovuto alla espansione ritardata.
+			@REM
+			@REM ........................................................................................
+			@REM
+			echo.
+			echo. MESSAGGIO %CODICE_S%
+			echo. "-------------------------------------------------------"	
+			echo.	Eseguo il salvataggio dei file .bat .txt									
+			echo.	nella directory di salvataggio									
+			echo. "-------------------------------------------------------"	
+			echo.										
+			@REM --> PAUSE
+			
+			@REM CODICE...
+			C:\CASA\Rar.exe a -ep1 %PATH_ARRIVO_s%FILE_BAT.RAR *.BAT *.TXT
+			
+			
+			@REM			FINE
+			@REM @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			
+			
+			
+			
+			
+			
+			echo.
+			echo. MESSAGGIO %CODICE_S%
+			echo. "-------------------------------------------------------"	
+			echo.	ATTIVITA									
+			echo.	ATTIVITA									
+			echo. "-------------------------------------------------------"	
+			echo.										
+			
+			
+			
+			
+			@REM//CRIPTA I FILE RAR IN G614
+			@SET MSG_S= MSG 09 - CRIPTO I FILE .RAR IN .GE614
+			echo. 								>> %PATH_S%%FILE_LOG_S%
+			echo. "trasformo i file .RAR in file CRIPTATI .GE614"		>> %PATH_S%%FILE_LOG_S%
+			echo.								>> %PATH_S%%FILE_LOG_S%
+			echo. %MSG_S%							>> %PATH_S%%FILE_LOG_S%		
+			echo.								>> %PATH_S%%FILE_LOG_S%
+			echo "ELENCO FILE .RAR TRASFORMATI DA RAR IN .GE61"		>> %PATH_S%%FILE_LOG_S%
+			echo.								>> %PATH_S%%FILE_LOG_S%
+			DIR *.RAR							>> %PATH_S%%FILE_LOG_S%
+			@REM//CRIPTA i file .rar .zip in GE614
+			@RENAME %PATH_S%*.RAR *.GE614 
+			
+			
+			@REM FINE 			eof
+			
+			@REM			OPERAZIONE DI SALVATAGGIO *** FINE ***
+			@REM -----------------------------------------------------------------------------------------
+			
+			
+			@REM			SOSPENSIONE
+			@REM -----------------------------------------------------------------------------------------
+			
+			@REM 01)
+			@REM sospensione per 1 secondo con crononometro 
+			@REM timeout /t 2 /nobreak > NUL
+			@REM ---->	TIMEOUT /T 2 /NOBREAK
+			
+			EXIT
+			@REM			SOSPENSIONE *** FINE ***
+			@REM -----------------------------------------------------------------------------------------
+			
+			
+			@REM 			SALVATAGGIO DATI *** FINE ***
+			@REM *************************************************************************************************************************
+			
+			
+			
+			
+			
+			***************************************************************************************************************************
+			goto Modelli
+			
+			Pe attribruire un titolo di inizio e fine utilizzare questo schema nel quale
+			set imposta la variabile del messaggio, poi viene scritta una intestazione, un corpo
+			delle attivia ed una fine:
+			
+			:------------------------------------------IMPOSTO IL MESSAGGIO + TITOLO + FINE
+			@SET MSG_S= MSG 05 - SE NON ESISTE LA DIRECTORY  VIENE CREATA LA DIRECTORY "%cd%\XX_SALVATAGGI\"
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo  " 		*****INIZIO****** 		      "			>> %PATH_S%%FILE_LOG_S%
+			echo   OPERAZIONE %MSG_S%							>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo. ... operazioni								>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo. "                  *****fine ******                     "			>> %PATH_S%%FILE_LOG_S%
+			echo. "======================================================="			>> %PATH_S%%FILE_LOG_S%
+			echo.										>> %PATH_S%%FILE_LOG_S%
+			
+			
+			
+			
+			
+			
+			
+			
+			IL MESSAGGIO DELLA POSIZIONE = 	1 Imposto il codice del messaggio con set
+			2 imposto echo + codice messaggio
+			
+			Il messaggio della posizione serve per individuare con pause la posizione del codice.				
+			
+			@REM @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			@REM 				TITOLO OPERAZIONE
+			@REM
+			@SET CODICE_S= SALVATAGGIO DEI FILE .BAT + TXT
+			@REM ........................................................................................
+			@REM ..........................................................
+			@REM NOTE = set deve stare al di fuori della if altrimenti 
+			@REM non funziona, forse è dovuto alla espansione ritardata. Il titolo è corpo del messaggio
+			@REM ed indica la posizione delle attività, in più ci sono 2 pause per il blocco del codice.	
+			@REM
+			@REM ........................................................................................
+			@REM
+			echo.
+			echo. MESSAGGIO %CODICE_S%
+			echo. "-------------------------------------------------------"	
+			echo.	ATTIVITA									
+			echo.	ATTIVITA									
+			echo. "-------------------------------------------------------"	
+			echo.										
+			@REM --> PAUSE
+			
+			@REM CODICE...
+			...			
+			@REM --> PAUSE
+			@REM			FINE
+			@REM @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			
+			
+			
+			
+			:Modelli
+			
+		
+		}
+		
+	\subsection{FOR Ciclo di SALVAGGIO CARTELLE CON RAR.EXE}
 	\label{FOR:SALVATAGGI-DirectoryConRAR}{....CICLO FOR DI SALVATAGGI CON RAR.EXE}
 	Esempio comprimi le directory e sottodirectory con un CICLO FOR che costruisce
 	una directory XAA\_SALVATAGGI nel quale comprimere con il comando rar tutte le
