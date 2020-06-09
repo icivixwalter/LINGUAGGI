@@ -1,0 +1,36 @@
+Option Compare Database
+
+'------------------------------------------------------------
+' COLLEGA_Mcr_LLPP_ATTI_Tb01_Gestione
+'
+'------------------------------------------------------------
+Function COLLEGA_Mcr_LLPP_ATTI_Tb01_Gestione()
+On Error GoTo COLLEGA_Mcr_LLPP_ATTI_Tb01_Gestione_Err
+
+    ' In caso di errore non viene eseguita l'istruzione elimina oggetto ma quella successiva
+    On Error Resume Next
+    ' viene prima cancellata con
+    ' EliminaOggetto
+    ' e poi riscotruito il collegamento con
+    ' TrasferisciDatabase
+    ' e cioè RICOSTUIRISCE TRUISCE IL COLELGAMENTO trasferisce database. Se invece esiste la tabella  ATTI DI IMPEGNO La stessa
+    ' prima elimina la tabella collegata gia esistente
+    DoCmd.DeleteObject acTable, "LLPP_ATTI_Tb01_Gestione"
+    ' LLPP_ATTI_Tb01_Gestione
+    ' path della tabella  ------------> :c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\
+    ' database -----------------------> LLPP_ATTI_Tb01_GESTIONE.mdb
+    ' collego la tabella LLPP_IMPEGNI_Tb02_ELENCO_DI_SPESA
+    DoCmd.TransferDatabase acLink, "Microsoft Access", "c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LLPP_ATTI_Tb01_GESTIONE.mdb", acTable, "LLPP_ATTI_Tb01_Gestione", "LLPP_ATTI_Tb01_Gestione", False
+    ' c:\GESTIONI\GESTIONE_LLPP\25_GESTIONE_LLPP\LLPP_ARCHVI_MDB\LLPP_GESTIONE\LLPP_ATTI_Tb01_GESTIONE.mdb
+
+
+COLLEGA_Mcr_LLPP_ATTI_Tb01_Gestione_Exit:
+    Exit Function
+
+COLLEGA_Mcr_LLPP_ATTI_Tb01_Gestione_Err:
+    MsgBox Error$
+    Resume COLLEGA_Mcr_LLPP_ATTI_Tb01_Gestione_Exit
+
+End Function
+
+
